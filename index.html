@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <title>心理咨询师新生报名初审系统</title>
+    <link rel="stylesheet" href="https://dist-cdn.oss-cn-beijing.aliyuncs.com/dist/luodiye/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      #pass {
+        width: 150px;
+        bottom: -30px;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="form-container m-auto p-5 text-center">
+      <header class="title"><h3 class="text-center pb-4">请假条</h3></header>
+      <div class="row text-left">
+        <div class="form-group col-md-6 col-xs-12">
+          <label for="xuehao">学号</label>
+          <input type="text" class="form-control" id="xuehao" placeholder="请输入学号" />
+        </div>
+        <div class="form-group col-md-6 col-xs-12">
+          <label for="xingming">姓名</label>
+          <input type="text" class="form-control" id="xingming" placeholder="请输入姓名" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="banji">班级</label>
+          <input type="text" class="form-control" id="banji" placeholder="请输入班级" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="xingbie">性别</label>
+          <input type="text" class="form-control" id="xingbie" placeholder="请输入性别" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="leibie">请假类型</label>
+          <input type="text" class="form-control" id="leibie" placeholder="请输入请假类型" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="kaishi">开始时间</label>
+          <input type="text" class="form-control" id="kaishi" placeholder="请输入开始时间" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="jieshu">结束时间</label>
+          <input type="text" class="form-control" id="jieshu" placeholder="请输入结束时间" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lixiao">是否离校</label>
+          <input type="text" class="form-control" id="lixiao" placeholder="请输入是否离校" />
+        </div>
+      </div>
+
+      <button id="js-form-submit" type="submit" class="btn btn-primary col-md-4 my-3">提交</button>
+    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+      $(() => {
+        $('#js-form-submit').on('click', () => {
+          var formData = new Object();
+          formData.xingming = $('#xingming').val();
+          formData.xuehao = $('#xuehao').val();
+          formData.banji = $('#banji').val();
+          formData.xingbie = $('#xingbie').val();
+          formData.leibie = $('#leibie').val();
+          formData.kaishi = $('#kaishi').val();
+          formData.jieshu = $('#jieshu').val();
+          formData.lixiao = $('#lixiao').val();
+          formData.nowTime = new Date();
+          localStorage.setItem('formData', JSON.stringify(formData));
+          window.location.href = 'result.html';
+        });
+      });
+    </script>
+  </body>
+</html>
