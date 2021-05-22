@@ -11,6 +11,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+
     <style>
       body {
         background-color: #eae1e9;
@@ -99,12 +100,14 @@
           <div></div>
         </div>
         <div id="qrcode-contain" class="text-center">
-          <img src="./imgs/qrcode.png" alt="" /><br />
+          <div id="qrcode"></div>
           <span id="date"></span>
         </div>
       </div>
     </div>
     <script src="./js/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
     <script>
       $(() => {
         let formData = JSON.parse(localStorage.getItem('formData'));
@@ -141,7 +144,35 @@
               fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
           return fmt;
         };
+        console.log(formData.xingming);
+        $('#qrcode').qrcode({
+          render: 'canvas',
+          text: `[${formData.xuehao}]${toUtf8(formData.xingming)}`,
+          width: 100,
+          height: 100,
+          foreground: '#1d9220',
+          background: '#FFF',
+        });
       });
+      function toUtf8(str) {
+        var out, i, len, c;
+        out = '';
+        len = str.length;
+        for (i = 0; i < len; i++) {
+          c = str.charCodeAt(i);
+          if (c >= 0x0001 && c <= 0x007f) {
+            out += str.charAt(i);
+          } else if (c > 0x07ff) {
+            out += String.fromCharCode(0xe0 | ((c >> 12) & 0x0f));
+            out += String.fromCharCode(0x80 | ((c >> 6) & 0x3f));
+            out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+          } else {
+            out += String.fromCharCode(0xc0 | ((c >> 6) & 0x1f));
+            out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+          }
+        }
+        return out;
+      }
     </script>
   </body>
 </html>
