@@ -2,75 +2,236 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>保定学院-学生工作服务平台</title>
-    <link rel="stylesheet" href="https://dist-cdn.oss-cn-beijing.aliyuncs.com/dist/luodiye/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
     <style>
-      #pass {
-        width: 150px;
-        bottom: -30px;
+      body {
+        background-color: #eae1e9;
+        font-size: 14px;
+      }
+      header {
+        background-color: #3b8dbb;
+        color: #fff;
+        height: 45px;
+		font-size:13px;
+        line-height: 45px;
+      }
+      header img {
+        width: 18px;
+      }
+      #table-contain {
+        background-color: #fff;
+      }
+      #table-contain .row {
+        display: flex;
+        line-height: 50px;
+        margin-left: 15px;
+        border-bottom: 1px solid #eae1e9;
+      }
+      #table-contain img {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+      .td-left {
+        height: 50px;
+        padding-left: 0;
+      }
+      #qrcode-contain {
+        padding: 10px 0 20px;
+        font-size: 18px;
+      }
+      .none-border {
+        border: none !important;
+      }
+      .all {
+        width: 100%;
+        overflow: hidden;
+      }
+      #mask {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
         right: 0;
+        background-color: rgba(34, 34, 34, 0.3);
+        color: red;
+        font-size: 12px;
+        display: none; 
+      }
+      #mask .contain {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 80%;
+        background-color: #fff;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+      }
+      #mask .shoukuanma {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        margin-bottom: 15px;
+      }
+      #mask p {
+        margin: 5px !important;
+        padding: 0 15px;
       }
     </style>
   </head>
   <body>
-    <section class="form-container m-auto p-5 text-center">
-      <header class="title"><h3 class="text-center pb-4">请假条</h3></header>
-      <div class="row text-left">
-        <div class="form-group col-md-6 col-xs-12">
-          <label for="xuehao">学号</label>
-          <input type="text" class="form-control" id="xuehao" placeholder="请输入学号" />
+    <div class="all">
+      <header class="text-center position-relative">
+        <div id="back" class="position-absolute ms-3"><img src="./imgs/back.png" alt="" /></div>
+        <span>请假码</span>
+      </header>
+      <div id="table-contain" class="mt-1">
+        <div class="row">
+          <div class="td-left col-4">学号</div>
+          <div id="xuehao" class="col-8"></div>
         </div>
-        <div class="form-group col-md-6 col-xs-12">
-          <label for="xingming">姓名</label>
-          <input type="text" class="form-control" id="xingming" placeholder="请输入姓名" />
+        <div class="row">
+          <div class="td-left col-4">姓名</div>
+          <div class="col-8" id="xingming"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="banji">班级</label>
-          <input type="text" class="form-control" id="banji" placeholder="请输入班级" />
+        <div class="row">
+          <div class="td-left col-4">性别</div>
+          <div class="col-8" id="xingbie"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="xingbie">性别</label>
-          <input type="text" class="form-control" id="xingbie" placeholder="请输入性别" />
+        <div class="row">
+          <div class="td-left col-4">班级</div>
+          <div class="col-8" id="banji"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="leibie">请假类型</label>
-          <input type="text" class="form-control" id="leibie" placeholder="请输入请假类型" />
+        <div class="row">
+          <div class="td-left col-4">请假类别</div>
+          <div class="col-8" id="leibie"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="kaishi">开始时间</label>
-          <input type="text" class="form-control" id="kaishi" placeholder="请输入开始时间" />
+        <div class="row">
+          <div class="td-left col-4">开始时间</div>
+          <div class="col-8" id="kaishi"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="jieshu">结束时间</label>
-          <input type="text" class="form-control" id="jieshu" placeholder="请输入结束时间" />
+        <div class="row">
+          <div class="td-left col-4">结束时间</div>
+          <div class="col-8" id="jieshu"></div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="lixiao">是否离校</label>
-          <input type="text" class="form-control" id="lixiao" placeholder="请输入是否离校" />
+        <div class="row">
+          <div class="td-left col-4">离校</div>
+          <div id="lixiao" class="col-8"></div>
+        </div>
+        <div class="row none-border">
+          <div class="td-left col-4">请假码</div>
+          <div></div>
+        </div>
+        <div id="qrcode-contain" class="text-center">
+          <div id="qrcode"></div>
+          <span id="date" class="d-block mt-3"></span>
         </div>
       </div>
-
-      <button id="js-form-submit" type="submit" class="btn btn-primary col-md-4 my-3">提交</button>
-    </section>
+    </div>
+    <div id="mask">
+      <div class="contain pb-3 text-center">
+        <div class="shoukuanma">
+          <img class="w-100" src="./imgs/shoukuan.jpg" alt="" />
+        </div>
+        <p>因为网站运营需要一定的钱，</p>
+        <p>所以希望大家每次使用时可以支持支持！</p>
+        <p>(自愿的哈！)</p>
+        <div class="close mt-2">
+          <svg
+            t="1621668983360"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="2349"
+            width="30"
+            height="30"
+          >
+            <path
+              d="M512 85.333333C276.48 85.333333 85.333333 276.48 85.333333 512S276.48 938.666667 512 938.666667 938.666667 747.52 938.666667 512 747.52 85.333333 512 85.333333z m136.533333 531.342223c11.377778 11.377778 11.377778 29.582222 0 39.822222-5.688889 5.688889-12.515556 7.964444-20.48 7.964444s-14.791111-2.275556-20.48-7.964444L512 559.786667l-96.711111 96.711111c-5.688889 5.688889-12.515556 7.964444-20.48 7.964444s-14.791111-2.275556-20.48-7.964444c-11.377778-11.377778-11.377778-29.582222 0-39.822222l96.711111-96.711112-104.675556-104.675555c-11.377778-11.377778-11.377778-29.582222 0-39.822222 11.377778-11.377778 29.582222-11.377778 39.822223 0l104.675555 104.675555 104.675556-104.675555c11.377778-11.377778 29.582222-11.377778 39.822222 0 11.377778 11.377778 11.377778 29.582222 0 39.822222l-104.675556 104.675555 97.848889 96.711112z"
+              p-id="2350"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
     <script src="./js/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
     <script>
       $(() => {
-        $('#js-form-submit').on('click', () => {
-          var formData = new Object();
-          formData.xingming = $('#xingming').val();
-          formData.xuehao = $('#xuehao').val();
-          formData.banji = $('#banji').val();
-          formData.xingbie = $('#xingbie').val();
-          formData.leibie = $('#leibie').val();
-          formData.kaishi = $('#kaishi').val();
-          formData.jieshu = $('#jieshu').val();
-          formData.lixiao = $('#lixiao').val();
-          formData.nowTime = new Date();
-          localStorage.setItem('formData', JSON.stringify(formData));
-          window.location.href = 'result.html';
+        $('.close').click(() => {
+          $('#mask').css('display', 'none');
         });
+        let formData = JSON.parse(localStorage.getItem('formData'));
+        if (formData) {
+          $('#xingming').text(formData.xingming);
+          $('#xuehao').text(formData.xuehao);
+          $('#banji').text(formData.banji);
+          $('#xingbie').text(formData.xingbie);
+          $('#leibie').text(formData.leibie);
+          $('#kaishi').text(formData.kaishi);
+          $('#jieshu').text(formData.jieshu);
+          $('#lixiao').text(formData.lixiao);
+        }
+        $('#back').click(() => {
+          history.back();
+        });
+        setInterval(() => {
+          $('#date').text(new Date().Format('yyyy-MM-dd hh:mm:ss'));
+        }, 1000);
+        Date.prototype.Format = function (fmt) {
+          var o = {
+            'M+': this.getMonth() + 1, //月份
+            'd+': this.getDate(), //日
+            'h+': this.getHours(), //小时
+            'm+': this.getMinutes(), //分
+            's+': this.getSeconds(), //秒
+            'q+': Math.floor((this.getMonth() + 3) / 3), //季度
+            S: this.getMilliseconds(), //毫秒
+          };
+          if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+          for (var k in o)
+            if (new RegExp('(' + k + ')').test(fmt))
+              fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+          return fmt;
+        };
+        $('#qrcode').qrcode({
+          render: 'canvas',
+          text: `[${formData.xuehao}]${toUtf8(formData.xingming)}`,
+          width: 140,
+          height: 140,
+          foreground: '#008b00',
+          background: '#FFF',
+        });
+        function toUtf8(str) {
+          var out, i, len, c;
+          out = '';
+          len = str.length;
+          for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if (c >= 0x0001 && c <= 0x007f) {
+              out += str.charAt(i);
+            } else if (c > 0x07ff) {
+              out += String.fromCharCode(0xe0 | ((c >> 12) & 0x0f));
+              out += String.fromCharCode(0x80 | ((c >> 6) & 0x3f));
+              out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+            } else {
+              out += String.fromCharCode(0xc0 | ((c >> 6) & 0x1f));
+              out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+            }
+          }
+          return out;
+        }
       });
     </script>
   </body>
