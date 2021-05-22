@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: rgba(28, 28, 28, 0.06);
+}
+
+:root{
+    font-size: 10px;
+}
+.topbox{
+    width: 100%;
+    height: 5rem;
+    background: #4b97ca;
+}
+.pass{
+    color: white;
+    font-size: 2.2rem;
+    
+    line-height: 4.5rem;
+    position: absolute;
+    left: 1.5rem;
+}
+.qjm_title{
+    display: block;
+    width: 4.8rem;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    line-height: 4.6rem;
+}
+.sec_box{
+    margin-top: -0.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background: white;
+}
+.s{
+    padding: 1.3rem;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.xh{
+    font-size: 1.4rem;
+}
+.xh_nu{
+    position: relative;
+    left: 8rem;
+    font-size: 1.4rem;
+}
+#time{
+    width: 13rem;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    padding-top: 2rem;
+}
+.cl{
+    font-size: 1.4rem;
+}
+.cl_jt{
+    position: relative;
+    left: 8rem;
+    font-size: 1.4rem;
+}
+.name{
+    font-size: 1.4rem;
+}
+.namo_jt{
+    position: relative;
+    left: 8rem;
+    font-size: 1.4rem;
+}
+.ks{
+    font-size: 1.4rem;
+}
+.ks_jt{
+    position: relative;
+    left: 5rem;
+    font-size: 1.4rem;
+}
+.js{
+    font-size: 1.4rem;
+}
+.js_jt{
+    position: relative;
+    left: 5rem;
+    font-size: 1.4rem;
+}
+.lx{
+    font-size: 1.4rem;
+}
+.lx_jt{
+    position: relative;
+    left: 8rem;
+    font-size: 1.4rem;
+}
+.lb{
+    font-size: 1.4rem;
+}
+.lb_jt{
+    position: relative;
+    left: 5rem;
+    font-size: 1.4rem;
+}
+.qjm{
+    font-size: 1.4rem;
+}
+.tp{
+    display: block;
+    margin: 0 auto;
+}
+.tp{
+    width:14rem;
+    height: 14rem;
+}
+.saa{
+    border: none;
+}
+.xb{
+    font-size: 1.4rem;
+}
+.xb_jt{
+    position: relative;
+    left: 5rem;
+    font-size: 1.4rem;
+}
