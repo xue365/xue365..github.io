@@ -1,0 +1,52 @@
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+hr,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px STheiti SC, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+select,
+input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #333;
+}
+
+.tc {
+  text-align: center;
+}
+
+input,
+button {
+  outline: none;
+}
+
+body {
+  background: #eee;
+}
+
+.form-container {
+  background: #fff;
+}
+/*# sourceMappingURL=style.css.map */
